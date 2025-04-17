@@ -1,0 +1,47 @@
+{
+    "testResults": [
+        {
+            "number": "11",
+            "name": "scenario deployment: small cell",
+            "description": "testing small cell deployment",
+            "status": "mandatory",
+            "result": "PASS",
+            "metrics": [
+                {
+                    "description": "Cell category. Energy reduction ≥ 20% over 24-hour period",
+                    "status": "mandatory",
+                    "result": "PASS",
+                    "measurements": [
+                        {
+                            "name": "PEE.AvgPower",
+                            "units": "W",
+                            "values": [
+                                1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "description": "Cell category. Energy reduction ≥ 20% over 24-hour period",
+                    "status": "mandatory",
+                    "result": "PASS",
+                    "measurements": [
+                        {
+                            "name": "DRB.UEThpDl",
+                            "units": "Gbps",
+                            "values": [
+                                1
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "notes": [
+                {
+                    "title": "A test note",
+                    "body": "The body of the test note with more details."
+                }
+            ]
+        }
+    ]
+}
