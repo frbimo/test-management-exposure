@@ -88,7 +88,7 @@ router =  APIRouter(prefix="/ProvMnS/v1alpha1/SubNetwork")
 RESOURCE_TAG = "Unified Resources (Test/TestReport)"
 
 @router.put(
-    "/{className}={id}",
+    "/{id}",
     # response_model=TestRequestBody, # Return the same structure as received
     responses={
         # 200: {"description": "Resource updated successfully"},
@@ -100,7 +100,6 @@ RESOURCE_TAG = "Unified Resources (Test/TestReport)"
 )
 
 async def create_or_replace_Test( # Renamed for clarity (PUT replaces)
-    className: str = Path(..., description="The class name of the subnetwork or related entity."),
     id: str = Path(..., description="The unique identifier of the subnetwork or related entity."),
     body: TestReport = Body(...),
     response: Response = Response(status_code=status.HTTP_201_CREATED)
@@ -116,9 +115,16 @@ async def create_or_replace_Test( # Renamed for clarity (PUT replaces)
     This endpoint validates the incoming Test structure, stores it in memory
     (overwriting if the Test ID already exists), and returns the stored Test data.
     """
-    print(f"Received PUT request for className={className}, id={id}")
-   
+    print(f"Received PUT request for id={id}")
+    
     test_meta_id=body.testMetadata.testId
+    if test_meta_id is None:
+        print(f"Test Metadata ID is None. Cannot proceed.")
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Test Metadata ID is None.")
+        
+    if test_meta_id !=id:
+        print(f"Test Metadata ID '{test_meta_id}' does not match the provided ID '{id}'.")
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Test Metadata ID '{test_meta_id}' does not match the provided ID '{id}'.")
     # TestMetadata.configurationParameters
     print(f"Received Test Metadata (ID: {test_meta_id}):")
     if test_report_db.get(test_meta_id) is not None:
@@ -138,7 +144,7 @@ async def create_or_replace_Test( # Renamed for clarity (PUT replaces)
     return Response(status_code=status.HTTP_201_CREATED)
 
 @router.get(
-    "/{className}={id}",
+    "/{id}",
     summary="Retrieve a Test",
     tags=["Test Management"],
     responses={
@@ -149,7 +155,6 @@ async def create_or_replace_Test( # Renamed for clarity (PUT replaces)
     response_model_exclude_none=True  # Exclude fields with None values
 )
 async def get_test_report(
-    className: str = Path(..., description="The class name of the subnetwork or related entity."),
     id: str = Path(..., description="The unique identifier of the subnetwork or related entity."),
     response: Response = Response(status_code=status.HTTP_200_OK)
 ):
@@ -159,7 +164,7 @@ async def get_test_report(
     - **className**: Class of the parent resource (e.g., TestReport).
     - **id**: ID of the parent resource.
     """
-    print(f"Received GET request for className={className}, id={id}")
+    print(f"Received GET request for  id={id}")
 
     if id in test_report_db:
         print(f"Test Report '{id}' found in memory.")
@@ -187,7 +192,7 @@ class TestSchema(BaseModel):
 
 # --- PATCH Endpoint (Modify) ---
 @router.patch(
-    "/{className}={id}",
+    "/{id}",
     status_code=status.HTTP_200_OK,
     summary="Partially Update Test Report ID",
     tags=[RESOURCE_TAG],
@@ -199,12 +204,11 @@ class TestSchema(BaseModel):
     },
 )
 async def update_resource(
-    className: str = Path(..., description="The class name of the resource."),
     id: str = Path(..., description="The unique identifier of the resource."),
     patch_data_dict: dict = Body(..., description="The patch data for the resource."),
     response: Response = Response(status_code=status.HTTP_200_OK),
 ):
-    print(f"Received PATCH request for {className}={id}")
+    print(f"Received PATCH request for {id}")
     if id in test_report_db:
         print(f"Test Report '{id}' found in memory.")
 
@@ -241,7 +245,7 @@ async def update_resource(
 
 # --- DELETE Endpoint ---
 @router.delete(
-    "/{className}={id}", # Path identifies the specific Test
+    "/{id}", # Path identifies the specific Test
     status_code=status.HTTP_204_NO_CONTENT,
     summary="Delete an Test by ID",
     tags=["Test Management"],
