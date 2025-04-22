@@ -1,90 +1,258 @@
 {
-    "$schema": "../o-ran-test-results-schema.json",
     "schemaVersion": 1,
     "testMetadata": {
-        "startDate": "2025-01-20T15:00:00-05:00",
+        "startDate": "2025-04-22T13:41:32.202236",
         "dutName": "Energy saving rApp",
-        "result": "PASS",
-        "testType": "functional",
         "interfaceUnderTest": [
             "smo.o1"
         ],
-        "testId": "ABCD250002",
-        "configurationParameters": {
-            "frequencyRange5G": [
-                "fr1"
-            ],
-            "band5G": [
-                "n79"
-            ],
-            "nr-arfcn": 641668,
-            "subCarrierSpacing": "30kHz",
-            "totalTransmissionBandwidth": 100,
-            "duplexMode": "tdd",
-            "tddDlUlRatio": "7:3",
-            "centralFrequency": 3.5,
-            "viaviRICTestConfiguration": {
-                "antennaHeight": 3,
-                "antennaTilt": 5,
-                "antennaAzimuth": 0,
-                "txPower": 40,
-                "txCableLoss": 0,
-                "rxCableLoss": 0,
-                "rxSensitivity": -100,
-                "numberOfCells": 48,
-                "ruModel": "NR-3600_micro",
-                "advancedRfModel": "Isotropic-Urban-micro",
-                "advancedTrafficModel": "TDD_7:3",
-                "cellCoordinates": [
-                    {
-                        "Cell Name": "s1",
-                        "x": 100,
-                        "y": 200
-                    },
-                    {
-                        "Cell Name": "s2",
-                        "x": 300,
-                        "y": 400
-                    },
-                    {
-                        "Cell Name": "s3",
-                        "x": 500,
-                        "y": 600
-                    }
-                ]
-            }
-        }
-    },
-    "testbedComponents": [
-        {
-            "componentDescription": "RIC Simulator",
-            "manufacturerName": "VIAVI",
-            "manufacturerModel": "TERAVM RICTest",
-            "softwareVersion": "0.0.0",
-            "contacts": [
-                {
-                    "firstName": "Joe",
-                    "lastName": "Joe",
-                    "email": "joe@gapps.ntust.edu.tw"
-                }
-            ],
-            "configurationParameters": {
-                "numRxAntenna": 4,
-                "numTxAntenna": 4,
-                "numMimoLayers": 4,
-                "ipv4": true,
-                "ipv6": true
-            }
-        }
-    ],
-    "testLab": {
-        "name": "Test",
-        "address": "test",
-        "contacts": [
+        "testType": "functional",
+        "testId": "7da924da-93cd-4a85-a1e4-b90f6aa92d37",
+        "configurationParameters": [
             {
-                "firstName": "test",
-                "lastName": "test",
-                "email": "test@test.com"
+                "deploymentScale": "micro",
+                "band5G": [
+                    "n79"
+                ],
+                "tddDlUlRatio": "7:3",
+                "totalTransmitPowerIntoAntenna": 27.0,
+                "geoLocGrp": [
+                    {
+                        "latitude": 40.0,
+                        "longitude": -20.0
+                    },
+                    {
+                        "latitude": 40.0,
+                        "longitude": 580.0
+                    },
+                    {
+                        "latitude": -560.0,
+                        "longitude": -20.0
+                    },
+                    {
+                        "latitude": -560.0,
+                        "longitude": 580.0
+                    }
+                ],
+                "numberOfCells": 48,
+                "azimuth": 0,
+                "tilt": 5,
+                "height": 3
+            },
+            {
+                "deploymentScale": "macro",
+                "band5G": [
+                    "n78"
+                ],
+                "tddDlUlRatio": "7:3",
+                "totalTransmitPowerIntoAntenna": 37.0,
+                "geoLocGrp": [
+                    {
+                        "latitude": 0.0,
+                        "longitude": 0.0
+                    },
+                    {
+                        "latitude": 0.0,
+                        "longitude": 600.0
+                    },
+                    {
+                        "latitude": 0.0,
+                        "longitude": 15.0
+                    },
+                    {
+                        "latitude": 0.0,
+                        "longitude": 30.0
+                    },
+                    {
+                        "latitude": -20.0,
+                        "longitude": 0.0
+                    },
+                    {
+                        "latitude": -20.0,
+                        "longitude": 15.0
+                    },
+                    {
+                        "latitude": -20.0,
+                        "longitude": 30.0
+                    },
+                    {
+                        "latitude": -40.0,
+                        "longitude": 0.0
+                    },
+                    {
+                        "latitude": -40.0,
+                        "longitude": 15.0
+                    },
+                    {
+                        "latitude": -40.0,
+                        "longitude": 30.0
+                    },
+                    {
+                        "latitude": -60.0,
+                        "longitude": 0.0
+                    },
+                    {
+                        "latitude": -60.0,
+                        "longitude": 15.0
+                    },
+                    {
+                        "latitude": -60.0,
+                        "longitude": 30.0
+                    },
+                    {
+                        "latitude": 0.0,
+                        "longitude": 615.0
+                    },
+                    {
+                        "latitude": 0.0,
+                        "longitude": 630.0
+                    },
+                    {
+                        "latitude": -20.0,
+                        "longitude": 600.0
+                    },
+                    {
+                        "latitude": -20.0,
+                        "longitude": 615.0
+                    },
+                    {
+                        "latitude": -20.0,
+                        "longitude": 630.0
+                    },
+                    {
+                        "latitude": -40.0,
+                        "longitude": 600.0
+                    },
+                    {
+                        "latitude": -40.0,
+                        "longitude": 615.0
+                    },
+                    {
+                        "latitude": -40.0,
+                        "longitude": 630.0
+                    },
+                    {
+                        "latitude": -60.0,
+                        "longitude": 600.0
+                    },
+                    {
+                        "latitude": -60.0,
+                        "longitude": 615.0
+                    },
+                    {
+                        "latitude": -60.0,
+                        "longitude": 630.0
+                    },
+                    {
+                        "latitude": -600.0,
+                        "longitude": 0.0
+                    },
+                    {
+                        "latitude": -600.0,
+                        "longitude": 15.0
+                    },
+                    {
+                        "latitude": -600.0,
+                        "longitude": 30.0
+                    },
+                    {
+                        "latitude": -620.0,
+                        "longitude": 0.0
+                    },
+                    {
+                        "latitude": -620.0,
+                        "longitude": 15.0
+                    },
+                    {
+                        "latitude": -620.0,
+                        "longitude": 30.0
+                    },
+                    {
+                        "latitude": -640.0,
+                        "longitude": 0.0
+                    },
+                    {
+                        "latitude": -640.0,
+                        "longitude": 15.0
+                    },
+                    {
+                        "latitude": -640.0,
+                        "longitude": 30.0
+                    },
+                    {
+                        "latitude": -660.0,
+                        "longitude": 0.0
+                    },
+                    {
+                        "latitude": -660.0,
+                        "longitude": 15.0
+                    },
+                    {
+                        "latitude": -660.0,
+                        "longitude": 30.0
+                    },
+                    {
+                        "latitude": -600.0,
+                        "longitude": 600.0
+                    },
+                    {
+                        "latitude": -600.0,
+                        "longitude": 615.0
+                    },
+                    {
+                        "latitude": -600.0,
+                        "longitude": 630.0
+                    },
+                    {
+                        "latitude": -620.0,
+                        "longitude": 600.0
+                    },
+                    {
+                        "latitude": -620.0,
+                        "longitude": 615.0
+                    },
+                    {
+                        "latitude": -620.0,
+                        "longitude": 630.0
+                    },
+                    {
+                        "latitude": -640.0,
+                        "longitude": 600.0
+                    },
+                    {
+                        "latitude": -640.0,
+                        "longitude": 615.0
+                    },
+                    {
+                        "latitude": -640.0,
+                        "longitude": 630.0
+                    },
+                    {
+                        "latitude": -660.0,
+                        "longitude": 600.0
+                    },
+                    {
+                        "latitude": -660.0,
+                        "longitude": 615.0
+                    },
+                    {
+                        "latitude": -660.0,
+                        "longitude": 630.0
+                    }
+                ],
+                "numberOfCells": 4,
+                "azimuth": 0,
+                "tilt": 15,
+                "height": 10,
+                "ueContext": {
+                    "numberOfUE": 800,
+                    "location": "s1",
+                    "targetThroughput": 0.028,
+                    "slice": "eMBB",
+                    "qosId": 1,
+                    "mobilityModel": "Stationary",
+                    "mobilitySpeed": 0.0
+                }
             }
         ]
     },
@@ -96,45 +264,12 @@
                     "objectType": "RAN_SUBNETWORK"
                 }
             ],
-            "targetAssuranceTime": {
-                "startTime": "2025-04-20T23:05:00+08:00",
-                "endTime": "2025-04-20T23:15:00+08:00"
-            },
-            "contexts": [
-                {
-                    "contextType": "event",
-                    "contextName": "rAppActivationEvent",
-                    "attributes": [
-                        {
-                            "contextAttribute": "rAppName",
-                            "contextCondition": "IS_EQUAL_TO",
-                            "contextValueRange": [
-                                "EnergyOptimizer_v1.0"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "contextType": "stateAfterEvent",
-                    "contextReference": "EnergySaverActivated",
-                    "attributes": [
-                        {
-                            "contextAttribute": "TrafficLoad",
-                            "contextCondition": "IS_LESS_THAN",
-                            "contextValueRange": [
-                                "15"
-                            ],
-                            "contextUnit": "%"
-                        }
-                    ]
-                }
-            ],
             "expectationTargets": [
                 {
                     "targetName": "PEE.AvgPower",
                     "targetCondition": "IS_GREATER_THAN_OR_EQUAL_TO",
                     "targetValueRange": [
-                        "20"
+                        20
                     ],
                     "targetUnit": "%",
                     "targetScope": "SpecificCellGroup"
@@ -143,94 +278,16 @@
                     "targetName": "DRB.UEThpDl",
                     "targetCondition": "IS_LESS_THAN_OR_EQUAL_TO",
                     "targetValueRange": [
-                        "10"
+                        10
                     ],
                     "targetUnit": "%",
                     "targetScope": "SpecificUEGroup"
                 }
-            ]
-        }
-    ],
-    "testResults": [
-        {
-            "number": "1",
-            "name": "scenario deployment: small cell",
-            "description": "testing small cell deployment",
-            "status": "mandatory",
-            "result": "PASS",
-            "metrics": [
-                {
-                    "description": "Cell category. Energy reduction ≥ 20% over 24-hour period",
-                    "status": "mandatory",
-                    "result": "PASS",
-                    "measurements": [
-                        {
-                            "name": "PEE.AvgPower",
-                            "units": "W",
-                            "values": [
-                                1
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "description": "Cell category. Energy reduction ≥ 20% over 24-hour period",
-                    "status": "mandatory",
-                    "result": "PASS",
-                    "measurements": [
-                        {
-                            "name": "DRB.UEThpDl",
-                            "units": "Gbps",
-                            "values": [
-                                1
-                            ]
-                        }
-                    ]
-                }
             ],
-            "notes": [
-                {
-                    "title": "A test note",
-                    "body": "The body of the test note with more details."
-                }
-            ]
-        },
-        {
-            "number": "1",
-            "name": "first group",
-            "description": "testing small cell deployment",
-            "status": "mandatory",
-            "result": "PASS",
-            "metrics": [
-                {
-                    "description": "Cell category. Energy reduction ≥ 20% over 24-hour period",
-                    "status": "mandatory",
-                    "result": "PASS",
-                    "measurements": [
-                        {
-                            "name": "PEE.AvgPower",
-                            "units": "W",
-                            "values": [
-                                1
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "description": "Cell category. Energy reduction ≥ 20% over 24-hour period",
-                    "status": "mandatory",
-                    "result": "PASS",
-                    "measurements": [
-                        {
-                            "name": "DRB.UEThpDl",
-                            "units": "Gbps",
-                            "values": [
-                                1
-                            ]
-                        }
-                    ]
-                }
-            ]
+            "targetAssuranceTime": {
+                "startTime": "2025-04-22T13:41:32.202615",
+                "endTime": "2025-04-22T13:41:32.202617"
+            }
         }
     ]
 }

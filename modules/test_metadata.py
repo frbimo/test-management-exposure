@@ -78,7 +78,11 @@ class TestMetadata(BaseModel):
     # Due to initialization issue, this field is set to Optional
     result: Optional[ResultType] = Field(None, description="The overall, aggregated, test result. PASS indicates all required test cases also indicate PASS. FAIL indicates one or more required test cases indicate FAIL. WARN indicates behavior observed during the execution of the test case might cause concern, problems, or issues not directly relating to the required test metrics. SKIP should not be used.")
     # result: ResultType = Field(..., description="The overall, aggregated, test result. PASS indicates all required test cases also indicate PASS. FAIL indicates one or more required test cases indicate FAIL. WARN indicates behavior observed during the execution of the test case might cause concern, problems, or issues not directly relating to the required test metrics. SKIP should not be used.")
+    
     testType: TestType = Field(..., description="Type of test result within this artifact.")
     testId: str = Field(..., description="Certificate/Badge Reference ID, assigned by the laboratory, in the format of [O-RAN Designator]yy####, where yy is the two digit year, and #### is a four digit number defined by the laboratory.")
     # iotProfile: Optional[Wg4IotProfile] = Field(None, description="Information about the
-    configurationParameters: Optional[ConfigurationParameters] = Field(None, description="Configuration parameters used during the test.")
+    
+    ## In simulator scenario, the configuration parameters should contain multiple configuration parameters
+    # configurationParameters: Optional[ConfigurationParameters] = Field(None, description="Configuration parameters used during the test.")
+    configurationParameters: Optional[List[ConfigurationParameters]] = Field(None, description="Configuration parameters used during the test.")
