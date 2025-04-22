@@ -66,8 +66,21 @@ class InterfaceUnderTest(str, Enum):
     NEAR_RT_RIC_E2 = "near-rt-ric.e2"
     NEAR_RT_RIC_O1 = "near-rt-ric.o1"
 
+class UEContext(BaseModel):
+    numberOfUE: Optional[int] = Field(None, description="Number of User Equipment (UE) in the context.")
+    location: Optional[str] = Field(None, description="Location of the UE context.")
+    targetThroughput: Optional[float] = Field(None, description="Target throughput for the UE context.")
+    slice: Optional[str] = Field(None, description="Network slice associated with the UE context.")
+    qosId: Optional[int] = Field(None, description="5G QoS Identifier (5QI) for the UE context.")
+    mobilityModel: Optional[str] = Field(None, description="Mobility model for the UE context.")    
+    mobilitySpeed: Optional[float] = Field(None, description="Mobility speed for the UE context.")
 
 
+class AdditionalContext(BaseModel):
+    ueContext: Optional[UEContext] = Field(
+        None,
+        description="User Equipment (UE) context information."
+    )
 
 class TestMetadata(BaseModel):
     contacts: Optional[List[ContactsItem]] = Field(None, description="Contacts relating to the testing, but not necessarily directly relating to the lab or a testbed component.")
@@ -82,7 +95,7 @@ class TestMetadata(BaseModel):
     testType: TestType = Field(..., description="Type of test result within this artifact.")
     testId: str = Field(..., description="Certificate/Badge Reference ID, assigned by the laboratory, in the format of [O-RAN Designator]yy####, where yy is the two digit year, and #### is a four digit number defined by the laboratory.")
     # iotProfile: Optional[Wg4IotProfile] = Field(None, description="Information about the
-    
+    additionalContext: Optional[AdditionalContext] = Field(None, description="Additional context information.")
     ## In simulator scenario, the configuration parameters should contain multiple configuration parameters
     # configurationParameters: Optional[ConfigurationParameters] = Field(None, description="Configuration parameters used during the test.")
     configurationParameters: Optional[List[ConfigurationParameters]] = Field(None, description="Configuration parameters used during the test.")
