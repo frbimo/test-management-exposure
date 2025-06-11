@@ -77,7 +77,7 @@ class UEContext(BaseModel):
 
 
 class AdditionalContext(BaseModel):
-    ueContext: Optional[UEContext] = Field(
+    ueContexts: Optional[List[UEContext]] = Field(
         None,
         description="User Equipment (UE) context information."
     )
