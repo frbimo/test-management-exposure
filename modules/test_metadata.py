@@ -81,6 +81,8 @@ class AdditionalContext(BaseModel):
         None,
         description="User Equipment (UE) context information."
     )
+    totalSimulationTime: Optional[int] = Field(None,  description="time period for running the simulation")
+
 
 class TestMetadata(BaseModel):
     contacts: Optional[List[ContactsItem]] = Field(None, description="Contacts relating to the testing, but not necessarily directly relating to the lab or a testbed component.")
